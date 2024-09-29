@@ -11,11 +11,10 @@ export class TaskService {
   private tasks: Task[] = [];
   private tasksSubject: BehaviorSubject<Task[]> = new BehaviorSubject(this.tasks);
   
-  private remoteTasksCache: Task[] | null = null; // Cache para tareas remotas
+  private remoteTasksCache: Task[] | null = null; 
 
   constructor(private jsonPlaceHolder: JSONPlaceholderService) {}
 
-  // Obtener tareas locales
   getTasks(): Observable<Task[]> {
     return this.tasksSubject.asObservable()
       .pipe(
@@ -48,7 +47,7 @@ export class TaskService {
         }),
         catchError((error) => {
           console.error('Error durante getTaskJSONPlaceHolder:', error);
-          return of([]); // Si hay un error, devolver un array vacío
+          return of([]); 
         })
       );
   }
