@@ -1,0 +1,20 @@
+.filter-task{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.filter-task__label{
+    font-size: 18px;
+    font-weight: 500;
+
+}
+
+.filter-task__select{
+    width: 400px;
+    height: 40px;
+}
+
+.filter-task__select-option{
+    height: 30px;
+}

@@ -1,0 +1,80 @@
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 100%;
+    padding: 1rem;
+}
+
+input, button {
+padding: 0.5rem;
+font-size: 1rem;
+width: 100%;
+}
+
+.person-container {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: #f9f9f9;
+}
+
+h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+button {
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.skill{
+    margin-bottom: 1rem;
+}
+
+.buttons-task{
+    display: flex;
+    margin-top: 10px;
+    gap: 10px;
+}
+
+.buttton-add-person{
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+small {
+color: red;
+font-size: 0.9rem;
+}
+
+/* Estilos para pantallas más grandes */
+@media (min-width: 768px) {
+form {
+    max-width: 50%;
+    margin: auto;
+}
+
+button {
+    width: auto;
+}
+
+.person-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.person-container h3 {
+    flex: 1;
+}
+}

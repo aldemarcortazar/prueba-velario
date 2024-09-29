@@ -1,0 +1,45 @@
+<task-task-filter
+  (taskFilterEmit)="handleTaskStatus($event)"
+>
+
+</task-task-filter>
+<div class="task-list">
+  <div class="tas-list__filter">
+    <div *ngFor="let task of filteredTasks" class="task-list__task">
+      <h3>{{ task.name }} ({{ task.completed ? 'Completed' : 'Pending' }})</h3>
+      <p>Due Date: {{ task.dueDate | date }}</p>
+      <button (click)="toggleCompletion(task.id)" class="complete">
+        {{ task.completed ? 'Mark as Pending' : 'Mark as Completed' }}
+      </button>
+      <button (click)="deleteTask(task.id)" class="delete">Delete</button>
+    
+      <div *ngFor="let person of task.persons">
+        <p>{{ person.fullName }} (Age: {{ person.age }})</p>
+        <p>Skills: {{ person.skills.join(', ') }}</p>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <div class="task-general-container">
+      <h3>Tareas en general</h3>
+      <div class="task-general__list">
+        <div class="task-general task-list__task" *ngFor="let task of tasks">
+          <h3>{{ task.name }} ({{ task.completed ? 'Completed' : 'Pending' }})</h3>
+          <p>Due Date: {{ task.dueDate | date }}</p>
+          <button class="complete" (click)="toggleCompletion(task.id)">
+            {{ task.completed ? 'Mark as Pending' : 'Mark as Completed' }}
+          </button>
+          <button class="delete" (click)="deleteTask(task.id)">Delete</button>
+          <div *ngFor="let person of task.persons">
+            <p>{{ person.fullName }} (Age: {{ person.age }})</p>
+            <p>Skills: {{ person.skills.join(', ') }}</p>
+          </div>
+      </div>
+      </div>
+  </div>
+</div>
+
+
+
+
+  

@@ -1,0 +1,13 @@
+<div class="filter-task">
+    <label class="filter-task__label" for="filter">Filter tasks:</label>
+    <select 
+        class="filter-task__select" 
+        id="filter" 
+        [(ngModel)]="taskFilter" 
+        (change)="EmitFilter()"
+      >
+      <option class="filter-task__select-option" value="all">All</option>
+      <option class="filter-task__select-option"  value="completed">Completed</option>
+      <option class="filter-task__select-option" value="pending">Pending</option>
+    </select>
+</div>

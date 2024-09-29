@@ -1,0 +1,101 @@
+/* Estilos básicos para la lista */
+.task__list{
+    display: flex;
+}
+
+.task-general-container{
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+
+.task-general{
+    background-color: #ffffff;
+    border: 1px solid hsl(0, 0%, 0%);
+    border-radius: 30px;
+    width: 200px;
+}
+
+.task-general-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.task-general__list{
+  display: flex;
+  padding: 1rem ;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.tas-list__filter{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  font-size: 1rem;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  margin-right: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+
+button.complete {
+  background-color: #28a745;
+  color: white;
+}
+
+button.delete {
+  background-color: #dc3545;
+  color: white;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+.task-list__task {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    width: 400px;
+  }
+  
+  
+  
+  /* Estilos responsivos */
+  @media (min-width: 768px) {
+    .task-container {
+      max-width: 60%;
+      margin: auto;
+    }
+  
+    h3 {
+      font-size: 1.8rem;
+    }
+  
+    p {
+      font-size: 1.2rem;
+    }
+  }
+  

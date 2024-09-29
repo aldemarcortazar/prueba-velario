@@ -1,0 +1,76 @@
+<form [formGroup]="taskForm" (ngSubmit)="submit()">
+    <div>
+      <label for="name">Task Name</label>
+      <input id="name" formControlName="name" />
+
+      @if(taskForm.get('name')?.invalid && taskForm.get('name')?.touched){
+        <div>
+          @if(taskForm.get('name')?.errors?.['required']){
+              <small>Task name is required</small>
+          }
+          @if(taskForm.get('name')?.errors?.['minlength']){
+              <small>Minimum 3 characters required</small>
+          }
+  
+        </div>
+      }
+    </div>
+    <div>
+      <label for="dueDate">Due Date</label>
+      <input type="date" id="dueDate" formControlName="dueDate" />
+      @if(taskForm.get('dueDate')?.invalid && taskForm.get('dueDate')?.touched){
+        <div>
+            <small>Due date is required</small>
+        </div>
+      }
+    </div>
+  
+    <div formArrayName="persons">
+      <div *ngFor="let person of persons.controls; let i = index" [formGroupName]="i">
+        <h3>Person {{ i + 1 }}</h3>
+        <label for="fullName-{{ i }}">Full Name</label>
+        <input id="fullName-{{ i }}" formControlName="fullName" />
+        @if(person.get('fullName')?.invalid && person.get('fullName')?.touched){
+            <div>
+                @if(person.get('fullName')?.errors?.['required']){
+                    <small>Name is required</small>
+                }
+                @if(person.get('fullName')?.errors?.['minlength']){
+                    <small>Minimum 5 characters required</small>
+                }
+            </div>
+        }
+        
+        <!-- Edad de la persona -->
+        <label for="age-{{ i }}">Age</label>
+        <input id="age-{{ i }}" type="number" formControlName="age" />
+        @if(person.get('age')?.invalid && person.get('age')?.touched){
+            <div>
+                @if(person.get('age')?.errors?.['min']){
+                    <small>Age must be greater than 18</small>
+                }
+            </div>
+        }
+  
+        <div formArrayName="skills">
+            @for(skill of getSkills(i).controls; track skill; let j = $index){
+              <div class="skill">
+                <label for="skill-{{ i }}-{{ j }}">Skill {{ j + 1 }}</label>
+                <input id="skill-{{ i }}-{{ j }}" [formControlName]="j" />
+                <div class="buttons-task">
+                  <button type="button" (click)="removeSkill(i, j)">Remove Skill</button>
+                  <button type="button" (click)="addSkill(i)">Add Skill</button>
+                </div>
+              </div>   
+            }
+            
+        </div>
+        <button type="button" (click)="removePerson(i)">Remove Person</button>
+      </div>
+  
+      <button class="buttton-add-person" type="button" (click)="addPerson()">Add Person</button>
+    </div>
+  
+    <button type="submit">Create Task</button>
+  </form>
+  
